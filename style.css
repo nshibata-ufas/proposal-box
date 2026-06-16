@@ -274,9 +274,14 @@ button[type="submit"]:disabled {
   color: var(--black);
 }
 
-.category-badge.職場環境 {
+.category-badge.職場環境・インフラ整備 {
   background: rgba(187,235,120,0.15);
   color: var(--accent);
+}
+
+.category-badge.社内制度・組織運営 {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.7);
 }
 
 .category-badge.その他 {
@@ -322,20 +327,14 @@ button[type="submit"]:disabled {
 }
 
 .admin-trigger {
-  position: absolute;
-  right: 24px;
   background: none;
   border: none;
-  color: var(--black);
-  font-size: 1.5rem;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
   cursor: pointer;
-  line-height: 1;
-  padding: 4px 8px;
+  padding: 0;
   user-select: none;
-}
-
-.admin-trigger:hover {
-  color: rgba(255,255,255,0.15);
 }
 
 /* ===== モーダル ===== */
@@ -431,6 +430,16 @@ button[type="submit"]:disabled {
   min-height: 1.2em;
   color: #e85e3d;
   text-align: center;
+}
+
+/* ===== 投稿例テキスト ===== */
+.example-text {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: var(--accent);
+  opacity: 0.8;
+  min-height: 1.2em;
+  line-height: 1.6;
 }
 
 /* ===== レスポンシブ ===== */

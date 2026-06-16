@@ -77,6 +77,19 @@ document.getElementById('proposal-form').addEventListener('submit', async (e) =>
   btn.textContent = '送信する'
 })
 
+// ===== カテゴリ別投稿例 =====
+const EXAMPLES = {
+  '業務プロセス・生産性向上': '投稿例：有給申請や勤務時間変更などの勤怠申請を、フォームから送って上長に承認してもらえる仕組みがあると嬉しいです！',
+  '職場環境・インフラ整備': '投稿例：会議室が足りなくて困っています。個人ブースがあると助かります！',
+  '社内制度・組織運営': '投稿例：リロクラブやベネフィット・ワンのような福利厚生サービスを導入してほしいです！',
+}
+
+function updateExample() {
+  const category = document.getElementById('category').value
+  const el = document.getElementById('example-text')
+  el.textContent = EXAMPLES[category] || ''
+}
+
 // ===== XSS対策 =====
 function escapeHtml(str) {
   return str

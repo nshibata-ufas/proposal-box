@@ -33,16 +33,18 @@
         <form id="proposal-form">
           <div class="field">
             <label for="category">カテゴリ</label>
-            <select id="category" required>
+            <select id="category" required onchange="updateExample()">
               <option value="">選択してください</option>
-              <option value="業務改善">業務改善</option>
-              <option value="職場環境">職場環境</option>
+              <option value="業務プロセス・生産性向上">業務プロセス・生産性向上</option>
+              <option value="職場環境・インフラ整備">職場環境・インフラ整備</option>
+              <option value="社内制度・組織運営">社内制度・組織運営</option>
               <option value="その他">その他</option>
             </select>
           </div>
           <div class="field">
             <label for="content">内容</label>
             <textarea id="content" rows="5" placeholder="ここに意見・提案を書いてください" required></textarea>
+            <p class="example-text" id="example-text"></p>
           </div>
           <button type="submit" id="submit-btn">
             <span>送信する</span>
