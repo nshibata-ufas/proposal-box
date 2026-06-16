@@ -51,7 +51,17 @@ document.getElementById('proposal-form').addEventListener('submit', async (e) =>
   const btn = document.getElementById('submit-btn')
   const msg = document.getElementById('form-message')
 
-  if (!content) return
+  if (!category) {
+    msg.textContent = 'カテゴリを選択してください'
+    msg.className = 'form-message error'
+    return
+  }
+
+  if (!content) {
+    msg.textContent = '内容を入力してください'
+    msg.className = 'form-message error'
+    return
+  }
 
   btn.disabled = true
   btn.textContent = '送信中...'
