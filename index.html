@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>社内提案ボックス</title>
+  <title>社内提案ボックス | UFAS</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>💬 社内提案ボックス</h1>
+      <div class="header-badge">UFAS Internal</div>
+      <h1>社内提案ボックス</h1>
       <p>匿名で気軽に意見・提案を投稿できます。名前は記録されません。</p>
     </header>
 
@@ -40,6 +41,23 @@
         <p class="loading">読み込み中...</p>
       </div>
     </section>
+  </div>
+
+  <footer>
+    <button class="admin-link" onclick="openAdminModal()">.</button>
+  </footer>
+
+  <!-- 管理者モーダル -->
+  <div class="modal-overlay" id="admin-modal">
+    <div class="modal">
+      <h3>管理者メニュー</h3>
+      <input type="password" id="admin-password" placeholder="パスワードを入力" />
+      <div class="modal-buttons">
+        <button class="btn-cancel" onclick="closeAdminModal()">キャンセル</button>
+        <button class="btn-reset" onclick="resetProposals()">全件削除</button>
+      </div>
+      <p class="modal-message" id="modal-message"></p>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

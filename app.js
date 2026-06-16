@@ -86,5 +86,42 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;')
 }
 
+// ===== 管理者モーダル =====
+const ADMIN_PASSWORD = 'ufas0206'
+
+function openAdminModal() {
+  document.getElementById('admin-modal').classList.add('active')
+  document.getElementById('admin-password').value = ''
+  document.getElementById('modal-message').textContent = ''
+}
+
+function closeAdminModal() {
+  document.getElementById('admin-modal').classList.remove('active')
+}
+
+async function resetProposals() {
+  const input = document.getElementById('admin-password').value
+  const msg = document.getElementById('modal-message')
+
+  if (input !== ADMIN_PASSWORD) {
+    msg.textContent = 'パスワードが違います'
+    return
+  }
+
+  const { error } = await db.from('proposals').delete().neq('id', 0)
+
+  if (error) {
+    msg.textContent = '削除に失敗しました'
+    console.error(error)
+  } else {
+    closeAdminModal()
+    await loadProposals()
+  }
+}
+
+document.getElementById('admin-modal').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('admin-modal')) closeAdminModal()
+})
+
 // ===== 初期ロード =====
 loadProposals()
