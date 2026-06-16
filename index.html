@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>社内提案ボックス</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>💬 社内提案ボックス</h1>
+      <p>匿名で気軽に意見・提案を投稿できます。名前は記録されません。</p>
+    </header>
+
+    <section class="form-section">
+      <h2>新しい投稿</h2>
+      <form id="proposal-form">
+        <div class="field">
+          <label for="category">カテゴリ</label>
+          <select id="category" required>
+            <option value="">選択してください</option>
+            <option value="業務改善">業務改善</option>
+            <option value="職場環境">職場環境</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="content">内容</label>
+          <textarea id="content" rows="4" placeholder="ここに意見・提案を書いてください" required></textarea>
+        </div>
+        <button type="submit" id="submit-btn">送信する</button>
+        <p id="form-message" class="form-message"></p>
+      </form>
+    </section>
+
+    <section class="list-section">
+      <h2>みんなの投稿</h2>
+      <div id="proposals-list">
+        <p class="loading">読み込み中...</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
