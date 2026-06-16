@@ -3,60 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>社内提案ボックス | UFAS</title>
+  <title>社内目安箱 | UFAS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="header-badge">UFAS Internal</div>
-      <h1>社内提案ボックス</h1>
-      <p>匿名で気軽に意見・提案を投稿できます。名前は記録されません。</p>
-    </header>
 
-    <section class="form-section">
-      <h2>新しい投稿</h2>
-      <form id="proposal-form">
-        <div class="field">
-          <label for="category">カテゴリ</label>
-          <select id="category" required>
-            <option value="">選択してください</option>
-            <option value="業務改善">業務改善</option>
-            <option value="職場環境">職場環境</option>
-            <option value="その他">その他</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="content">内容</label>
-          <textarea id="content" rows="4" placeholder="ここに意見・提案を書いてください" required></textarea>
-        </div>
-        <button type="submit" id="submit-btn">送信する</button>
-        <p id="form-message" class="form-message"></p>
-      </form>
-    </section>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <span class="site-header__logo">UFAS</span>
+      <span class="site-header__label">Internal</span>
+    </div>
+  </header>
 
-    <section class="list-section">
-      <h2>みんなの投稿</h2>
-      <div id="proposals-list">
-        <p class="loading">読み込み中...</p>
+  <main>
+    <section class="hero">
+      <div class="hero__inner">
+        <p class="hero__eyebrow">Anonymous Feedback</p>
+        <h1 class="hero__title">社内目安箱</h1>
+        <p class="hero__sub">あなたの声が、会社をよくする。<br>匿名で気軽に意見・提案を投稿できます。</p>
       </div>
     </section>
-  </div>
 
-  <footer>
-    <button class="admin-link" onclick="openAdminModal()">.</button>
+    <div class="content">
+      <section class="card form-section">
+        <h2 class="section-title">新しい投稿</h2>
+        <form id="proposal-form">
+          <div class="field">
+            <label for="category">カテゴリ</label>
+            <select id="category" required>
+              <option value="">選択してください</option>
+              <option value="業務改善">業務改善</option>
+              <option value="職場環境">職場環境</option>
+              <option value="その他">その他</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="content">内容</label>
+            <textarea id="content" rows="5" placeholder="ここに意見・提案を書いてください" required></textarea>
+          </div>
+          <button type="submit" id="submit-btn">
+            <span>送信する</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p id="form-message" class="form-message"></p>
+        </form>
+      </section>
+
+      <section class="card list-section">
+        <h2 class="section-title">みんなの投稿</h2>
+        <div id="proposals-list">
+          <p class="loading">読み込み中...</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__copy">&copy; 2026 UFAS Inc.</p>
+    <button class="admin-trigger" onclick="openAdminModal()" aria-label="admin">·</button>
   </footer>
 
   <!-- 管理者モーダル -->
   <div class="modal-overlay" id="admin-modal">
     <div class="modal">
-      <h3>管理者メニュー</h3>
-      <input type="password" id="admin-password" placeholder="パスワードを入力" />
-      <div class="modal-buttons">
+      <h3 class="modal__title">管理者メニュー</h3>
+      <p class="modal__desc">パスワードを入力して全件削除できます。</p>
+      <input type="password" id="admin-password" class="modal__input" placeholder="パスワード" />
+      <div class="modal__buttons">
         <button class="btn-cancel" onclick="closeAdminModal()">キャンセル</button>
         <button class="btn-reset" onclick="resetProposals()">全件削除</button>
       </div>
-      <p class="modal-message" id="modal-message"></p>
+      <p class="modal__message" id="modal-message"></p>
     </div>
   </div>
 
